@@ -29,10 +29,10 @@ socket.on('disconnect', function() {
 // });
 
 socket.on('newMessage', function(message) {
-    console.log(message.text);
+    console.log(message);
 });
 
-socket.on('newMessage', function(message) {
-    console.log(message.text);
+socket.on('newUser', function(message) {
+    console.log(message);
 });
 
