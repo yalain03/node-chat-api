@@ -33,10 +33,25 @@ io.on('connection', (socket) => {
     //     createdAt: new Date()
     // });
 
+    socket.emit('newMessage', {
+        from: 'admin',
+        text: 'Welcome to the chat room'
+    });
+
+    socket.broadcast.emit('newMessage', {
+        from: 'admin',
+        text: 'New user joined'
+    });
+
     socket.on('createMessage', function(message) {
-        console.log('New message created');
-        console.log(message);
+        console.log('New message created', message);
+        
         io.emit('newMessage', {
+            from: message.from,
+            text: message.text,
+            createdAt: new Date().getTime()
+        });
+        socket.broadcast.emit('newMessage', {
             from: message.from,
             text: message.text,
             createdAt: new Date().getTime()

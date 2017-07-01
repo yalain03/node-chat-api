@@ -23,8 +23,16 @@ socket.on('disconnect', function() {
 //     console.log('New email', email);
 // });
 
+// socket.on('newMessage', function(message) {
+//     console.log('New message');
+//     console.log(message);
+// });
+
 socket.on('newMessage', function(message) {
-    console.log('New message');
-    console.log(message);
+    console.log(message.text);
+});
+
+socket.on('newMessage', function(message) {
+    console.log(message.text);
 });
 
