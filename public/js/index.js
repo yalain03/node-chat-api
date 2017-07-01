@@ -30,9 +30,31 @@ socket.on('disconnect', function() {
 
 socket.on('newMessage', function(message) {
     console.log(message);
+    var li = $('<li class="list-group-item"></li>');
+    li.text(`${message.from}: ${message.text}`);
+
+    $('#messages').append(li);
 });
 
-socket.on('newUser', function(message) {
+socket.on('newMessage', function(message) {
     console.log(message);
 });
 
+socket.emit('createMessage', {
+    from: 'Junior',
+    text: 'Hey, what is up?'
+}, function(data) {
+    console.log('Got it!', data);
+});
+
+
+$('#message-form').on('submit', function(e) {
+    e.preventDefault();
+
+    socket.emit('createMessage', {
+        from: 'User',
+        text: $('[name=message]').val()
+    }, function() {
+
+    });
+});

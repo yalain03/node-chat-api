@@ -11,9 +11,22 @@
 <body>
 <div class="container">
     <p>Welcome to node web chat app</p>
+    <div class="container">
+        <div>
+            <ul class="list-group" id="messages">
+            </ul>
+        </div>
+        <div class="jumbotron">
+            <form id="message-form">
+                <input type="text" class="form-control" name="message" placeholer="Message"><br>
+                <button class="btn btn-success">Send</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
+<script src="/js/libs/jquery-3.2.1.min.js"></script>
 <script src="/js/index.js"></script>
 </body>
 </html>
