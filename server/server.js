@@ -26,16 +26,21 @@ io.on('connection', (socket) => {
 
     // method created for receiving 
 
-    socket.emit('newMessage', {
-        from: 'server',
-        to: 'user',
-        text: 'New message created and emitted',
-        createdAt: new Date()
-    });
+    // socket.emit('newMessage', {
+    //     from: 'server',
+    //     to: 'user',
+    //     text: 'New message created and emitted', 
+    //     createdAt: new Date()
+    // });
 
     socket.on('createMessage', function(message) {
         console.log('New message created');
         console.log(message);
+        io.emit('newMessage', {
+            from: message.from,
+            text: message.text,
+            createdAt: new Date().getTime()
+        });
     });
 
     socket.on('disconnect', () => {

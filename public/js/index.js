@@ -9,10 +9,10 @@ socket.on('connect', function() {
     //     createdAt: new Date()
     // });  
 
-    socket.emit('createMessage', {
-        from: 'user-x@example.com',
-        text: 'This is to greet everyone in this room'
-    });  
+    // socket.emit('createMessage', {
+    //     from: 'user-x@example.com',
+    //     text: 'This is to greet everyone in this room'
+    // });  
 });
 
 socket.on('disconnect', function() {
