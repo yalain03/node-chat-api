@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('newMessage', generateMessage('admin', 'new user joined'));
 
     socket.on('createMessage', function(message, callback) {
-        console.log('New message created', message);        
+        // console.log('New message created', message);        
         io.emit('newMessage', generateMessage(message.from, message.text));
         callback('this is from the server');
 
