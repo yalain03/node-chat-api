@@ -29,9 +29,9 @@ socket.on('disconnect', function() {
 // });
 
 socket.on('newMessage', function(message) {
-    console.log(message);
+    var formattedTime = moment(message.createdAt).format('h:mm a');
     var li = $('<li></li>');
-    li.text(`${message.from}: ${message.text}`);
+    li.text(`${message.from} ${formattedTime}: ${message.text}`);
 
     $('#messages').append(li);
 });
@@ -40,12 +40,12 @@ socket.on('newMessage', function(message) {
     console.log(message);
 });
 
-socket.emit('createMessage', {
-    from: 'Junior',
-    text: 'Hey, what is up?'
-}, function(data) {
-    console.log('Got it!', data);
-});
+// socket.emit('createMessage', {
+//     from: 'Junior',
+//     text: 'Hey, what is up?'
+// }, function(data) {
+//     console.log('Got it!', data);
+// });
 
 
 $('#message-form').on('submit', function(e) {
