@@ -3,27 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/styles.css">
 <link rel="icon" href="./envelope.png">
 <title>Node Chat App</title>
 </head>
 
-<body>
-<div class="container">
-    <p>Welcome to node web chat app</p>
-    <div class="container">
-        <div>
-            <ul class="list-group" id="messages">
-            </ul>
-        </div>
-        <div class="jumbotron">
-            <form id="message-form">
-                <input type="text" class="form-control" name="message" placeholer="Message"><br>
-                <button class="btn btn-success">Send</button>
-            </form>
-        </div>
+<body class="chat">
+    <div class="chat__sidebar">
+    <h3>People</h3>
+    <div id="users"></div>
+  </div>
+
+  <div class="chat__main">
+    <ol id="messages" class="chat__messages"></ol>
+
+    <div class="chat__footer">
+      <form id="message-form">
+        <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/>
+        <button>Send</button>
+      </form>
+      <button id="send-location">Send location</button>
     </div>
-</div>
+  </div>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/libs/jquery-3.2.1.min.js"></script>
